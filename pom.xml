@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.hired-goons</groupId>
+    <artifactId>astro-service-java</artifactId>
+    <packaging>pom</packaging>
+
+    <version>1.0-SNAPSHOT</version>
+
+    <name>Astro Query (Root)</name>
+    <description>Query Astronomical Catalogs</description>
+
+    <modules>
+        <module>astro-common</module>
+        <module>gliese-query</module>
+        <module>hd-query</module>
+        <module>yale-query</module>
+        <module>distance-calculator</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <maven.cargo.plugin.version>1.9.10</maven.cargo.plugin.version>
+        <maven.cargo.plugin.hostname>192.168.20.10</maven.cargo.plugin.hostname>
+        <maven.cargo.plugin.port>8080</maven.cargo.plugin.port>
+        <maven.cargo.plugin.remote.username>deployer</maven.cargo.plugin.remote.username>
+        <maven.cargo.plugin.remote.password>deploy</maven.cargo.plugin.remote.password>
+        <maven.war.plugin.version>3.3.2</maven.war.plugin.version>
+        <spring.boot.version>2.6.6</spring.boot.version>
+        <commons.collections4.version>4.4</commons.collections4.version>
+        <commons.lang3.version>3.12.0</commons.lang3.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>${commons.collections4.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons.lang3.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
